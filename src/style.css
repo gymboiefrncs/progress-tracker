@@ -24,13 +24,12 @@
   /* light colors */
   --color-bg: hsl(0, 0%, 95%);
   --color-bg-light: hsl(0, 0%, 100%);
-  --color-bg-dark: hsl(0 0% 93%);
+  --color-bg-dark: hsl(0 0% 90%);
   --color-text: hsl(0, 0%, 18%);
   --color-text-muted: hsl(0 0% 40%);
-  --color-border: hsl(0 0% 80%);
+  --color-border: hsl(0, 4%, 80%);
   --color-highlight: hsl(0 0% 60%);
 
-  /* gradients + shadows */
   --gradient: linear-gradient(180deg, var(--color-bg-light), var(--color-bg));
   --gradient-hover: linear-gradient(
     180deg,
@@ -55,7 +54,6 @@
   --color-warning-hover: hsl(39, 70%, 57%);
   --color-error-hover: hsl(0, 80%, 61%);
 
-  /* alert texts */
   --color-success-text: hsl(145, 31%, 21%);
   --color-warning-text: hsl(29, 41%, 22%);
   --color-error-text: hsl(0, 54%, 19%);
@@ -74,7 +72,6 @@
       --color-border: hsl(0 0% 25%);
       --color-highlight: hsl(0 0% 55%);
 
-      /* gradient and shadows */
       --gradient: linear-gradient(
         180deg,
         var(--color-bg-dark),
@@ -103,7 +100,6 @@
       --color-warning-hover: hsl(35, 62%, 49%);
       --color-error-hover: hsl(0, 56%, 49%);
 
-      /* alert texts */
       --color-success-text: hsl(146, 100%, 86%);
       --color-warning-text: hsl(38, 87%, 79%);
       --color-error-text: hsl(0, 87%, 78%);
@@ -177,20 +173,6 @@
     background-color: var(--color-primary-hover);
   }
 
-  .btn-secondary {
-    background-color: var(--color-secondary);
-  }
-  .btn-secondary:hover {
-    background-color: var(--color-secondary-hover);
-  }
-
-  .btn-accent {
-    background-color: var(--color-accent);
-  }
-  .btn-accent:hover {
-    background-color: var(--color-accent-hover);
-  }
-
   .btn-success {
     background-color: var(--color-success);
   }
@@ -213,7 +195,7 @@
   }
 
   .card {
-    @apply p-4 rounded-2xl max-w-sm;
+    @apply p-4 rounded-xl max-w-sm;
     background-color: var(--color-bg-light);
     background-image: var(--gradient);
     border: 1px solid var(--color-border);
@@ -246,65 +228,59 @@
     color: var(--color-error-text);
   }
 
+  .list {
+    padding: 0.75rem;
+    background-color: var(--color-bg);
+    transition: 0.1s ease-in-out;
+  }
+
+  .list:hover {
+    background-color: var(--color-bg-dark);
+    cursor: pointer;
+  }
+
+  .scrollbar {
+    overflow-y: auto;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: rgba(147, 147, 147, 0.1);
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(91, 90, 90, 0.4); /* soft visible thumb */
+    border-radius: 0;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(53, 51, 51, 0.5);
+  }
+
+  .active {
+    background-color: var(--color-bg-dark);
+  }
   .layout {
     display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-areas:
       "header header"
-      "sidebar main"
-      "footer footer";
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 50px 1fr 80px;
+      "nav main";
+    height: 100%;
   }
   .header {
     grid-area: header;
   }
-  .sidebar {
-    grid-area: sidebar;
+  .nav {
+    grid-area: nav;
   }
   .main {
     grid-area: main;
-  }
-  .footer {
-    grid-area: footer;
-  }
-
-  .list {
-    padding: 0.75rem;
-    background-color: var(--color-bg-dark);
-    border-bottom: 2px solid black;
-  }
-
-  .hide-scrollbar {
     overflow-y: auto;
-  }
-
-  .hide-scrollbar::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .hide-scrollbar::-webkit-scrollbar-track {
-    background: transparent; /* or rgba(0,0,0,0.1) if you want a faint track */
-  }
-
-  .hide-scrollbar::-webkit-scrollbar-thumb {
-    background-color: rgba(53, 51, 51, 0.4); /* soft visible thumb */
-    border-radius: 10px;
-  }
-
-  .hide-scrollbar::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(53, 51, 51, 0.5);
-  }
-
-  .circular-progress {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: conic-gradient(#4f46e5 0deg, #e5e7eb 0deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #111;
-    font-weight: bold;
   }
 }
 

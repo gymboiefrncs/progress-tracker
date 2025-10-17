@@ -6,45 +6,115 @@
     <title>Document</title>
     <link href="/src/style.css" rel="stylesheet" />
   </head>
-  <body>
-    <div class="max-h-screen max-w-full mx-44 p-4 border-2 layout">
-      <header class="flex justify-between items-center py-4 header border-2">
+  <body class="h-screen overflow-hidden">
+    <div class="flex flex-col h-full">
+      <header class="flex justify-between items-center p-4 bg-primary">
         <h4>furanshisu</h4>
-        <div>
-          <img src="" alt="" class="h-10 w-10 rounded-full bg-gray-600" />
-        </div>
+        <button
+          class="btn active:translate-y-0.5 active:transition duration-300 ease"
+        >
+          Toggle
+        </button>
       </header>
-      <nav class="sidebar border-2 hide-scrollbar">
-        <ul class="">
-          <li class="list">
-            <span class="text-lg">HTML</span>
-          </li>
-          <li class="list">
-            <span class="text-lg">CSS</span>
-          </li>
-          <li class="list">
-            <span class="text-lg">JavaScript</span>
-          </li>
-          <li class="list">
-            <span class="text-lg">TypeScript</span>
-          </li>
-          <li class="list">
-            <span class="text-lg">NodeJS</span>
-          </li>
-        </ul>
-        <h4 class="text-center border-b-2 p-3">Frameworks</h4>
-        <ul>
-          <li class="list">React</li>
-          <li class="list">Express</li>
-        </ul>
-        <h4 class="text-center border-b-2 p-3">Databases</h4>
-        <ul>
-          <li class="list">MySQL</li>
-          <li class="list">PostgreSQL</li>
-        </ul>
-      </nav>
-      <main class="main border-2"></main>
-      <footer class="footer border-2"></footer>
+
+      <div class="flex flex-1 max-w-full">
+        <nav
+          class="sidebar hide-scrollbar border-r border-border overflow-y-auto w-64"
+        >
+          <ul>
+            <a href="/frontend/js/index.html?topic=javascript"
+              ><li class="list"><span class="text-lg">JavaScript</span></li></a
+            >
+            <a href="/backend/ts/index.html?topic=typescript"
+              ><li class="list"><span class="text-lg">TypeScript</span></li></a
+            >
+            <a href="/backend/nodejs/index.html?topic=nodejs"
+              ><li class="list"><span class="text-lg">NodeJS</span></li></a
+            >
+          </ul>
+
+          <h4 class="text-center border-b border-border p-2">Frameworks</h4>
+          <ul>
+            <a href="/frontend/react/index.html?topic=react"
+              ><li class="list"><span class="text-lg">React</span></li></a
+            >
+          </ul>
+        </nav>
+
+        <main class="flex-1 overflow-y-auto p-6 bg-gray-50">
+          <section class="mb-8">
+            <div>
+              <h2 class="text-2xl font-bold mb-2">Welcome, Master</h2>
+              <p class="text-gray-600">
+                Track your progress and keep leveling up!
+              </p>
+            </div>
+            <div>
+              <input type="text" name="" id="" />
+            </div>
+          </section>
+
+          <section class="grid grid-cols-3 gap-6 mb-8">
+            <div class="card">
+              <h3 class="text-lg font-semibold mb-2">JavaScript</h3>
+              <p class="text-sm text-gray-500 mb-2">Current Topic: Objects</p>
+              <div class="w-full bg-gray-300 h-3 rounded">
+                <div class="bg-blue-500 h-3 rounded" style="width: 60%"></div>
+              </div>
+              <p class="text-sm text-gray-500 mt-1">60% Complete</p>
+            </div>
+
+            <div class="card">
+              <h3 class="text-lg font-semibold mb-2">React</h3>
+              <p class="text-sm text-gray-500 mb-2">
+                Current Topic: Components
+              </p>
+              <div class="w-full bg-gray-300 h-3 rounded">
+                <div class="bg-green-500 h-3 rounded" style="width: 30%"></div>
+              </div>
+              <p class="text-sm text-gray-500 mt-1">30% Complete</p>
+            </div>
+
+            <div class="card">
+              <h3 class="text-lg font-semibold mb-2">NodeJS</h3>
+              <p class="text-sm text-gray-500 mb-2">Current Topic: Basics</p>
+              <div class="w-full bg-gray-300 h-3 rounded">
+                <div class="bg-yellow-500 h-3 rounded" style="width: 10%"></div>
+              </div>
+              <p class="text-sm text-gray-500 mt-1">10% Complete</p>
+            </div>
+          </section>
+
+          <section
+            class="card flex items-center gap-4 mb-8"
+            style="max-width: 100%"
+          >
+            <div
+              class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full"
+            >
+              <svg
+                class="w-6 h-6 text-blue-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                />
+              </svg>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-semibold">Congrats!</h4>
+              <p class="text-gray-600">
+                You just completed
+                <span class="font-medium text-blue-600"
+                  >JavaScript: Objects</span
+                >
+              </p>
+            </div>
+          </section>
+        </main>
+      </div>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>

@@ -1,1 +1,236 @@
-[]
+{
+  "javascript": {
+    "progress": 0,
+    "isFinished": false,
+    "subtopics": {
+      "variables": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Variables",
+        "note": ""
+      },
+      "dataTypes": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Data Types",
+        "note": ""
+      },
+      "operators": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Operators",
+        "note": ""
+      },
+      "conditionals": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Conditionals",
+        "note": ""
+      },
+      "loops": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Loops",
+        "note": ""
+      },
+      "arrays": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Arrays",
+        "note": ""
+      },
+      "objects": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Objects",
+        "note": ""
+      },
+      "functions": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Functions",
+        "note": ""
+      },
+      "scope": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Scope",
+        "note": ""
+      },
+      "closures": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Closures",
+        "note": ""
+      },
+      "prototypes": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Prototypes",
+        "note": ""
+      },
+      "classes": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Classes",
+        "note": ""
+      },
+      "promises": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Promises",
+        "note": ""
+      },
+      "asyncAwait": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Async/Await",
+        "note": ""
+      },
+      "events": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Events",
+        "note": ""
+      },
+      "domManipulation": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "DOM Manipulation",
+        "note": ""
+      }
+    }
+  },
+  "react": {
+    "progress": 0,
+    "isFinished": false,
+    "subtopics": {
+      "components": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Components",
+        "note": ""
+      },
+      "props": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Props",
+        "note": ""
+      },
+      "state": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "State",
+        "note": ""
+      },
+      "events": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Events",
+        "note": ""
+      },
+      "conditionalRendering": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Conditional Rendering",
+        "note": ""
+      },
+      "listsAndKeys": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Lists and Keys",
+        "note": ""
+      },
+      "forms": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Forms",
+        "note": ""
+      },
+      "hooks": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Hooks",
+        "note": ""
+      },
+      "useEffect": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "useEffect",
+        "note": ""
+      },
+      "useRef": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "useRef",
+        "note": ""
+      },
+      "context": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Context",
+        "note": ""
+      }
+    }
+  },
+  "typescript": {
+    "progress": 0,
+    "isFinished": false,
+    "subtopics": {
+      "types": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Types",
+        "note": ""
+      },
+      "interfaces": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Interfaces",
+        "note": ""
+      },
+      "typeAliases": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Type Aliases",
+        "note": ""
+      },
+      "enums": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Enums",
+        "note": ""
+      },
+      "generics": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Generics",
+        "note": ""
+      },
+      "functions": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Functions",
+        "note": ""
+      },
+      "classes": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Classes",
+        "note": ""
+      },
+      "modules": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Modules",
+        "note": ""
+      },
+      "utilityTypes": {
+        "isFinished": false,
+        "inProgress": false,
+        "name": "Utility Types",
+        "note": ""
+      }
+    }
+  }
+}
