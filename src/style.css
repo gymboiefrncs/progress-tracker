@@ -1,0 +1,316 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+* {
+  box-sizing: border-box;
+}
+:root {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --letter-spacing: 0.03rem;
+}
+
+/* default theme */
+@theme {
+  /* fonts */
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* light colors */
+  --color-bg: hsl(0, 0%, 95%);
+  --color-bg-light: hsl(0, 0%, 100%);
+  --color-bg-dark: hsl(0 0% 93%);
+  --color-text: hsl(0, 0%, 18%);
+  --color-text-muted: hsl(0 0% 40%);
+  --color-border: hsl(0 0% 80%);
+  --color-highlight: hsl(0 0% 60%);
+
+  /* gradients + shadows */
+  --gradient: linear-gradient(180deg, var(--color-bg-light), var(--color-bg));
+  --gradient-hover: linear-gradient(
+    180deg,
+    var(--color-bg-dark),
+    var(--color-bg)
+  );
+  --shadow-elevate: 0 4px 6px hsla(0 0% 0% / 0.1);
+
+  /* semantic colors */
+  --color-primary: hsl(220, 87%, 73%);
+  --color-secondary: hsl(260, 96%, 79%);
+  --color-accent: hsl(330, 95%, 75%);
+  --color-success: hsl(145, 63%, 62%);
+  --color-warning: hsl(39, 91%, 62%);
+  --color-error: hsl(0, 90%, 67%);
+
+  /* semantic's color hovers */
+  --color-primary-hover: hsl(220, 78%, 59%);
+  --color-secondary-hover: hsl(260, 86%, 66%);
+  --color-accent-hover: hsl(330, 91%, 66%);
+  --color-success-hover: hsl(145, 63%, 54%);
+  --color-warning-hover: hsl(39, 70%, 57%);
+  --color-error-hover: hsl(0, 80%, 61%);
+
+  /* alert texts */
+  --color-success-text: hsl(145, 31%, 21%);
+  --color-warning-text: hsl(29, 41%, 22%);
+  --color-error-text: hsl(0, 54%, 19%);
+}
+
+/* dark theme */
+@layer theme {
+  :root {
+    @variant dark {
+      /* dark colors*/
+      --color-bg: hsl(0 0% 7%);
+      --color-bg-light: hsl(0 0% 10%);
+      --color-bg-dark: hsl(0 0% 3%);
+      --color-text: hsl(0, 0%, 100%);
+      --color-text-muted: hsl(0 0% 65%);
+      --color-border: hsl(0 0% 25%);
+      --color-highlight: hsl(0 0% 55%);
+
+      /* gradient and shadows */
+      --gradient: linear-gradient(
+        180deg,
+        var(--color-bg-dark),
+        var(--color-bg)
+      );
+      --gradient-hover: linear-gradient(
+        180deg,
+        var(--color-bg),
+        var(--color-bg-light)
+      );
+      --shadow-elevate: 0 4px 8px hsla(0 0% 0% / 0.5);
+
+      /* semantic colors */
+      --color-primary: hsl(220, 96%, 60%);
+      --color-secondary: hsl(260, 95%, 62%);
+      --color-accent: hsl(330, 96%, 63%);
+      --color-success: hsl(145, 89%, 26%);
+      --color-warning: hsl(38, 82%, 30%);
+      --color-error: hsl(0, 82%, 33%);
+
+      /* semantic's color hovers */
+      --color-primary-hover: hsl(220, 94%, 67%);
+      --color-secondary-hover: hsl(260, 91%, 69%);
+      --color-accent-hover: hsl(330, 90%, 69%);
+      --color-success-hover: hsl(145, 70%, 41%);
+      --color-warning-hover: hsl(35, 62%, 49%);
+      --color-error-hover: hsl(0, 56%, 49%);
+
+      /* alert texts */
+      --color-success-text: hsl(146, 100%, 86%);
+      --color-warning-text: hsl(38, 87%, 79%);
+      --color-error-text: hsl(0, 87%, 78%);
+    }
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    letter-spacing: var(--letter-spacing);
+  }
+
+  h1 {
+    @apply text-5xl font-bold leading-tight;
+  }
+  h2 {
+    @apply text-4xl font-bold leading-snug;
+  }
+  h3 {
+    @apply text-3xl font-bold leading-snug;
+  }
+  h4 {
+    @apply text-2xl font-bold leading-snug;
+  }
+  h5 {
+    @apply text-xl font-bold leading-snug;
+  }
+  h6 {
+    @apply text-lg font-bold leading-snug;
+  }
+  p {
+    @apply text-sm leading-normal;
+    color: var(--color-text-muted);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline px-4 py-2 rounded-md font-medium transition-colors duration-200 ease-in-out;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-elevate);
+  }
+
+  .btn:hover {
+    cursor: pointer;
+    background-color: var(--color-bg-light);
+    box-shadow: var(--shadow-elevate);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+  }
+
+  .btn-secondary {
+    background-color: var(--color-secondary);
+  }
+  .btn-secondary:hover {
+    background-color: var(--color-secondary-hover);
+  }
+
+  .btn-accent {
+    background-color: var(--color-accent);
+  }
+  .btn-accent:hover {
+    background-color: var(--color-accent-hover);
+  }
+
+  .btn-success {
+    background-color: var(--color-success);
+  }
+  .btn-success:hover {
+    background-color: var(--color-success-hover);
+  }
+
+  .btn-warning {
+    background-color: var(--color-warning);
+  }
+  .btn-warning:hover {
+    background-color: var(--color-warning-hover);
+  }
+
+  .btn-error {
+    background-color: var(--color-error);
+  }
+  .btn-error:hover {
+    background-color: var(--color-error-hover);
+  }
+
+  .card {
+    @apply p-4 rounded-2xl max-w-sm;
+    background-color: var(--color-bg-light);
+    background-image: var(--gradient);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-elevate);
+    color: var(--color-text-muted);
+  }
+  .card:hover {
+    background-image: var(--gradient-hover);
+  }
+
+  .alert {
+    @apply p-4 rounded-sm max-w-sm font-medium;
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-border);
+  }
+  .alert-body {
+    color: var(--color-text-muted);
+  }
+
+  .alert-success {
+    background-color: var(--color-success);
+    color: var(--color-success-text);
+  }
+  .alert-warning {
+    background-color: var(--color-warning);
+    color: var(--color-warning-text);
+  }
+  .alert-error {
+    background-color: var(--color-error);
+    color: var(--color-error-text);
+  }
+
+  .layout {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 50px 1fr 80px;
+  }
+  .header {
+    grid-area: header;
+  }
+  .sidebar {
+    grid-area: sidebar;
+  }
+  .main {
+    grid-area: main;
+  }
+  .footer {
+    grid-area: footer;
+  }
+
+  .list {
+    padding: 0.75rem;
+    background-color: var(--color-bg-dark);
+    border-bottom: 2px solid black;
+  }
+
+  .hide-scrollbar {
+    overflow-y: auto;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar-track {
+    background: transparent; /* or rgba(0,0,0,0.1) if you want a faint track */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(53, 51, 51, 0.4); /* soft visible thumb */
+    border-radius: 10px;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(53, 51, 51, 0.5);
+  }
+
+  .circular-progress {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(#4f46e5 0deg, #e5e7eb 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+    font-weight: bold;
+  }
+}
+
+/* ---------- SYSTEM LIGHT MODE FALLBACK ---------- */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+}
