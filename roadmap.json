@@ -3,6 +3,8 @@
     "progress": 0,
     "isFinished": false,
     "name": "JavaScript",
+    "startDate": null,
+    "finishDate": null,
     "subtopics": {
       "variables": {
         "isFinished": false,
@@ -122,6 +124,8 @@
     "progress": 0,
     "isFinished": false,
     "name": "Node JS",
+    "startDate": null,
+    "finishDate": null,
     "subtopics": {
       "introduction": {
         "isFinished": false,
@@ -206,6 +210,8 @@
     "progress": 0,
     "isFinished": false,
     "name": "React",
+    "startDate": null,
+    "finishDate": null,
     "subtopics": {
       "components": {
         "isFinished": false,
@@ -290,6 +296,8 @@
     "progress": 0,
     "isFinished": false,
     "name": "TypeScript",
+    "finishDate": null,
+    "startDate": null,
     "subtopics": {
       "types": {
         "isFinished": false,

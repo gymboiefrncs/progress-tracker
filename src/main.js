@@ -12,7 +12,6 @@ async function getRoadMap() {
     displayProgress(roadmap);
     return;
   }
-
   try {
     const response = await fetch("/roadmap.json");
     if (!response.ok) throw new Error("Failed to load JSON");
@@ -196,6 +195,7 @@ function displayProgress(data) {
     const total = subTopics.length;
     const finished = subTopics.filter((topic) => topic.isFinished).length;
     const progress = total === 0 ? 0 : Math.round((finished / total) * 100);
+
     const progressText = document.createElement("p");
     progressText.textContent = `Progress: ${progress}%`;
 
@@ -214,7 +214,7 @@ function displayProgress(data) {
     const finishedTopics = subTopics
       .filter((topic) => topic.isFinished)
       .map((topic) => topic.name)
-      .sort((b, a) => b - a);
+      .sort((a, b) => a.localeCompare(b));
 
     if (finishedTopics.length > 0) {
       const dropDownContainer = document.createElement("div");
@@ -236,7 +236,10 @@ function displayProgress(data) {
         "hover:bg-gray-200",
         "transition-color",
         "duration-200",
-        "truncate"
+        "truncate",
+        "overflow-y-auto",
+        "max-h-[20rem]",
+        "scrollbar"
       );
       finishedTopics.forEach((item) => {
         const list = document.createElement("li");
@@ -253,10 +256,28 @@ function displayProgress(data) {
       toggleBtnContainer.append(dropDownContainer);
     }
 
+    if (!value.startDate && subTopics[0].isStarted) {
+      value.startDate = new Date().toISOString();
+    }
+
+    if (progress === 100 && !value.finishDate) {
+      value.finishDate = new Date().toISOString();
+    }
+
+    let totalDays = 0;
+    if (value.startDate) {
+      const start = new Date(value.startDate);
+      const end = value.finishDate ? new Date(value.finishDate) : new Date();
+      totalDays = Math.floor((end - start) / (1000 * 60 * 60 * 24)) + 1;
+    }
+
+    const daysText = document.createElement("p");
+    daysText.textContent = `Total Days: ${totalDays}`;
+    daysText.classList.add("text-sm", "text-gray-500");
+
     progressContainer.append(progressBar);
-    subDiv.append(title, progressText, progressContainer);
+    subDiv.append(title, progressText, progressContainer, daysText);
     container.append(subDiv);
   });
 }
-
 getRoadMap();
