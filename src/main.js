@@ -7,9 +7,9 @@ async function getRoadMap() {
   const savedData = localStorage.getItem("roadmapData");
 
   if (savedData) {
-    console.log("Loaded roadmap from localStorage");
     const roadmap = JSON.parse(savedData);
     displayRoadMapData(roadmap[currentTopic]);
+    displayProgress(roadmap);
     return;
   }
 
@@ -18,7 +18,6 @@ async function getRoadMap() {
     if (!response.ok) throw new Error("Failed to load JSON");
     const roadmap = await response.json();
 
-    // Save fetched roadmap initially
     localStorage.setItem("roadmapData", JSON.stringify(roadmap));
     displayRoadMapData(roadmap[currentTopic]);
   } catch (err) {
@@ -28,22 +27,17 @@ async function getRoadMap() {
 
 function displayRoadMapData(data) {
   const container = document.querySelector("#main-container");
-  container.innerHTML = ""; // clear previous content
-
+  if (!container) return;
+  container.innerHTML = "";
   if (data) {
     const roadmap = JSON.parse(localStorage.getItem("roadmapData"));
     const subTopicsData = Object.entries(data.subtopics);
-
     subTopicsData.forEach(([subtopic, value], index) => {
       // Determine if topic should be unlocked
-      if (
-        index === 0 ||
-        (subTopicsData[index - 1] &&
-          subTopicsData[index - 1][1].isFinished === true)
-      ) {
-        value.inProgress = true;
+      if (index === 0 || subTopicsData[index - 1][1].isFinished === true) {
+        value.isStarted = true;
       } else {
-        value.inProgress = false;
+        value.isStarted = false;
       }
 
       const subDiv = document.createElement("div");
@@ -55,10 +49,10 @@ function displayRoadMapData(data) {
         "gap-3"
       );
 
-      if (!value.inProgress && !value.isFinished) {
+      if (!value.isStarted && !value.isFinished) {
         const text = document.createElement("p");
         text.textContent = `Clear the previous topic first to unlock "${value.name}"`;
-        text.classList.add("text-gray-500", "text-sm");
+        text.classList.add("text-text", "text-sm");
         subDiv.append(text);
         container.append(subDiv);
         return;
@@ -96,31 +90,48 @@ function displayRoadMapData(data) {
       header.append(name, status);
       subDiv.appendChild(header);
 
+      // note section
       if (!value.isFinished) {
+        const body = document.createElement("div");
+        body.classList.add("gap-2", "flex", "items-center");
+        const saveBtn = document.createElement("button");
+        saveBtn.classList.add("btn", "btn-success", "p-2", "text-sm");
+        saveBtn.textContent = "Save";
         const note = document.createElement("textarea");
-        note.placeholder = "Where did you leave off?";
+        note.placeholder = value.inProgress
+          ? "Where did you leave off?"
+          : "What topic do you wanna learn";
         note.value = value.note || "";
         note.classList.add(
-          "mt-2",
           "p-2",
           "border",
           "border-gray-300",
           "rounded-md",
           "text-sm",
-          "resize-none"
+          "font-semibold",
+          "resize-none",
+          "w-full"
         );
         note.rows = 1;
 
-        subDiv.append(note);
+        saveBtn.addEventListener("click", () => {
+          value.note = note.value;
+          value.inProgress = true;
+          roadmap[currentTopic].subtopics[subtopic] = value;
+          localStorage.setItem("roadmapData", JSON.stringify(roadmap));
+          displayRoadMapData(roadmap[currentTopic]);
+        });
+
+        body.append(note, saveBtn);
+        subDiv.append(body);
       }
 
-      // ✅ Toggle between "Mark as Done" and "Undo"
       const btn = document.createElement("button");
       btn.classList.add("btn");
 
       if (!value.isFinished) {
         btn.textContent = "Mark as Done";
-        btn.classList.add("bg-blue-500", "text-white", "hover:bg-blue-600");
+        btn.classList.add("bg-blue-500", "hover:bg-blue-600");
         btn.addEventListener("click", () => {
           value.isFinished = true;
           value.inProgress = false;
@@ -129,7 +140,7 @@ function displayRoadMapData(data) {
           roadmap[currentTopic].subtopics[subtopic] = value;
 
           if (subTopicsData[index + 1]) {
-            subTopicsData[index + 1][1].inProgress = true;
+            subTopicsData[index + 1][1].isStarted = true;
           }
 
           localStorage.setItem("roadmapData", JSON.stringify(roadmap));
@@ -143,7 +154,7 @@ function displayRoadMapData(data) {
           value.inProgress = true;
 
           if (subTopicsData[index + 1]) {
-            subTopicsData[index + 1][1].inProgress = false;
+            subTopicsData[index + 1][1].isStarted = false;
           }
 
           roadmap[currentTopic].subtopics[subtopic] = value;
@@ -158,5 +169,94 @@ function displayRoadMapData(data) {
     });
   }
 }
-console.log(localStorage);
+
+function displayProgress(data) {
+  const toggleBtnContainer = document.querySelector("#toggle-btn-container");
+  const container = document.querySelector("#progress-container");
+  container.innerHTML = "";
+
+  Object.entries(data).forEach(([key, value]) => {
+    const subDiv = document.createElement("div");
+    subDiv.classList.add(
+      "card",
+      "p-4",
+      "rounded-xl",
+      "shadow-md",
+      "flex",
+      "flex-col",
+      "gap-2",
+      "bg-white"
+    );
+
+    const title = document.createElement("h2");
+    title.textContent = value.name;
+    title.classList.add("text-lg", "font-bold", "text-gray-800");
+
+    const subTopics = Object.values(value.subtopics);
+    const total = subTopics.length;
+    const finished = subTopics.filter((topic) => topic.isFinished).length;
+    const progress = total === 0 ? 0 : Math.round((finished / total) * 100);
+    const progressText = document.createElement("p");
+    progressText.textContent = `Progress: ${progress}%`;
+
+    const progressContainer = document.createElement("div");
+    progressContainer.classList.add(
+      "w-full",
+      "bg-gray-300",
+      "h-3",
+      "rounded-full"
+    );
+
+    const progressBar = document.createElement("div");
+    progressBar.classList.add("h-3", "rounded-full", "bg-blue-500");
+    progressBar.style.width = `${progress}%`;
+
+    const finishedTopics = subTopics
+      .filter((topic) => topic.isFinished)
+      .map((topic) => topic.name)
+      .sort((b, a) => b - a);
+
+    if (finishedTopics.length > 0) {
+      const dropDownContainer = document.createElement("div");
+      dropDownContainer.classList.add("mt-2");
+
+      const toggleBtn = document.createElement("button");
+      toggleBtn.textContent = `View finished topics (${finishedTopics.length})`;
+      toggleBtn.classList.add("btn", "btn-primary");
+
+      const listContainer = document.createElement("ul");
+      listContainer.classList.add(
+        "bg-bg",
+        "py-2",
+        "border-border",
+        "rounded-sm",
+        "indent-4",
+        "hidden",
+        "text-text",
+        "hover:bg-gray-200",
+        "transition-color",
+        "duration-200",
+        "truncate"
+      );
+      finishedTopics.forEach((item) => {
+        const list = document.createElement("li");
+        list.textContent = `- ${item} | ${value.name}`;
+        list.classList.add("text-text", "mb-2");
+        listContainer.append(list);
+      });
+
+      toggleBtn.addEventListener("click", () => {
+        listContainer.classList.toggle("hidden");
+      });
+
+      dropDownContainer.append(toggleBtn, listContainer);
+      toggleBtnContainer.append(dropDownContainer);
+    }
+
+    progressContainer.append(progressBar);
+    subDiv.append(title, progressText, progressContainer);
+    container.append(subDiv);
+  });
+}
+
 getRoadMap();

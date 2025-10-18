@@ -2,101 +2,202 @@
   "javascript": {
     "progress": 0,
     "isFinished": false,
+    "name": "JavaScript",
     "subtopics": {
       "variables": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Variables",
         "note": ""
       },
       "dataTypes": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Data Types",
         "note": ""
       },
       "operators": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Operators",
         "note": ""
       },
       "conditionals": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Conditionals",
         "note": ""
       },
       "loops": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Loops",
         "note": ""
       },
       "arrays": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Arrays",
         "note": ""
       },
       "objects": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Objects",
         "note": ""
       },
       "functions": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Functions",
         "note": ""
       },
       "scope": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Scope",
         "note": ""
       },
       "closures": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Closures",
         "note": ""
       },
       "prototypes": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Prototypes",
         "note": ""
       },
       "classes": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Classes",
         "note": ""
       },
       "promises": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Promises",
         "note": ""
       },
       "asyncAwait": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Async/Await",
         "note": ""
       },
       "events": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Events",
         "note": ""
       },
       "domManipulation": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "DOM Manipulation",
+        "note": ""
+      }
+    }
+  },
+  "nodejs": {
+    "progress": 0,
+    "isFinished": false,
+    "name": "Node JS",
+    "subtopics": {
+      "introduction": {
+        "isFinished": false,
+        "inProgress": false,
+        "isStarted": false,
+        "name": "Introduction to Node.js",
+        "note": ""
+      },
+      "setup": {
+        "isFinished": false,
+        "inProgress": false,
+        "isStarted": false,
+        "name": "Setup & Environment",
+        "note": ""
+      },
+      "modules": {
+        "isFinished": false,
+        "inProgress": false,
+        "isStarted": false,
+        "name": "Modules & require",
+        "note": ""
+      },
+      "npm": {
+        "isFinished": false,
+        "inProgress": false,
+        "isStarted": false,
+        "name": "npm & Packages",
+        "note": ""
+      },
+      "events": {
+        "isFinished": false,
+        "inProgress": false,
+        "isStarted": false,
+        "name": "EventEmitter & Events",
+        "note": ""
+      },
+      "fs": {
+        "isFinished": false,
+        "inProgress": false,
+        "isStarted": false,
+        "name": "File System (fs)",
+        "note": ""
+      },
+      "http": {
+        "isFinished": false,
+        "inProgress": false,
+        "isStarted": false,
+        "name": "HTTP & Servers",
+        "note": ""
+      },
+      "express": {
+        "isFinished": false,
+        "inProgress": false,
+        "isStarted": false,
+        "name": "Express Basics",
+        "note": ""
+      },
+      "middlewares": {
+        "isFinished": false,
+        "inProgress": false,
+        "isStarted": false,
+        "name": "Middleware & Routing",
+        "note": ""
+      },
+      "databases": {
+        "isFinished": false,
+        "inProgress": false,
+        "isStarted": false,
+        "name": "Databases & Node.js",
+        "note": ""
+      },
+      "restApi": {
+        "isFinished": false,
+        "inProgress": false,
+        "isStarted": false,
+        "name": "REST API Development",
         "note": ""
       }
     }
@@ -104,70 +205,82 @@
   "react": {
     "progress": 0,
     "isFinished": false,
+    "name": "React",
     "subtopics": {
       "components": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Components",
         "note": ""
       },
       "props": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Props",
         "note": ""
       },
       "state": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "State",
         "note": ""
       },
       "events": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Events",
         "note": ""
       },
       "conditionalRendering": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Conditional Rendering",
         "note": ""
       },
       "listsAndKeys": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Lists and Keys",
         "note": ""
       },
       "forms": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Forms",
         "note": ""
       },
       "hooks": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Hooks",
         "note": ""
       },
       "useEffect": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "useEffect",
         "note": ""
       },
       "useRef": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "useRef",
         "note": ""
       },
       "context": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Context",
         "note": ""
       }
@@ -176,58 +289,68 @@
   "typescript": {
     "progress": 0,
     "isFinished": false,
+    "name": "TypeScript",
     "subtopics": {
       "types": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Types",
         "note": ""
       },
       "interfaces": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Interfaces",
         "note": ""
       },
       "typeAliases": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Type Aliases",
         "note": ""
       },
       "enums": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Enums",
         "note": ""
       },
       "generics": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Generics",
         "note": ""
       },
       "functions": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Functions",
         "note": ""
       },
       "classes": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Classes",
         "note": ""
       },
       "modules": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Modules",
         "note": ""
       },
       "utilityTypes": {
         "isFinished": false,
         "inProgress": false,
+        "isStarted": false,
         "name": "Utility Types",
         "note": ""
       }
