@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypeScript</title>
+    <link href="../src/style.css" rel="stylesheet" />
+  </head>
+  <body class="h-screen overflow-auto">
+    <div class="layout">
+      <header class="header p-4 bg-primary">
+        <div class="flex justify-between items-center">
+          <h4>furanshisu</h4>
+          <button
+            class="btn active:translate-y-0.5 active:transition duration-300 ease"
+          >
+            Toggle
+          </button>
+        </div>
+      </header>
+
+      <nav class="sidebar border-r border-border nav">
+        <ul>
+          <li class="list">
+            <a href="../index.html" class="block">
+              <span class="text-lg">Home</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="../js/index.html?topic=javascript" class="block">
+              <span class="text-lg">JavaScript</span>
+            </a>
+          </li>
+          <li class="list active">
+            <a href="../ts/index.html?topic=typescript" class="block">
+              <span class="text-lg active">TypeScript</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="../nodejs/index.html?topic=nodejs" class="block">
+              <span class="text-lg">NodeJS</span>
+            </a>
+          </li>
+        </ul>
+
+        <h4 class="text-center border-b border-border p-2">Frameworks</h4>
+        <ul>
+          <li class="list">
+            <a href="../react/index.html?topic=react" class="block">
+              <span class="text-lg">React</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <main class="main overflow-y-auto scrollbar p-6 bg-gray-50">
+        <h3 class="mb-4">TypeScript</h3>
+        <div
+          id="main-container"
+          class="grid grid-cols-3 gap-8 items-start"
+        ></div>
+      </main>
+    </div>
+
+    <!-- Relative path, let Vite handle JS -->
+    <script type="module" src="../src/main.js"></script>
+  </body>
+</html>

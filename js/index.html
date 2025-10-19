@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="/src/style.css" rel="stylesheet" />
+    <title>TypeScript</title>
+    <link href="../src/style.css" rel="stylesheet" />
   </head>
   <body class="h-screen overflow-auto">
     <div class="layout">
@@ -21,27 +21,35 @@
 
       <nav class="sidebar border-r border-border nav">
         <ul>
-          <a href="/index.html">
-            <li class="list"><span class="text-lg">Home</span></li>
-          </a>
-          <a href="/js/index.html?topic=javascript">
-            <li class="list"><span class="text-lg">JavaScript</span></li>
-          </a>
-          <a href="/ts/index.html?topic=typescript">
-            <li class="list active">
+          <li class="list">
+            <a href="../index.html" class="block">
+              <span class="text-lg">Home</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="../js/index.html?topic=javascript" class="block">
+              <span class="text-lg">JavaScript</span>
+            </a>
+          </li>
+          <li class="list active">
+            <a href="../ts/index.html?topic=typescript" class="block">
               <span class="text-lg active">TypeScript</span>
-            </li>
-          </a>
-          <a href="/nodejs/index.html?topic=nodejs">
-            <li class="list"><span class="text-lg">NodeJS</span></li>
-          </a>
+            </a>
+          </li>
+          <li class="list">
+            <a href="../nodejs/index.html?topic=nodejs" class="block">
+              <span class="text-lg">NodeJS</span>
+            </a>
+          </li>
         </ul>
 
         <h4 class="text-center border-b border-border p-2">Frameworks</h4>
         <ul>
-          <a href="/react/index.html?topic=react">
-            <li class="list"><span class="text-lg">React</span></li>
-          </a>
+          <li class="list">
+            <a href="../react/index.html?topic=react" class="block">
+              <span class="text-lg">React</span>
+            </a>
+          </li>
         </ul>
       </nav>
 
@@ -53,6 +61,8 @@
         ></div>
       </main>
     </div>
-    <script type="module" src="/src/main.js"></script>
+
+    <!-- Relative path, let Vite handle JS -->
+    <script type="module" src="../src/main.js"></script>
   </body>
 </html>
