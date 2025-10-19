@@ -168,7 +168,7 @@ function displayRoadMapData(data) {
     });
   }
 }
-
+getRoadMap();
 function displayProgress(data) {
   const toggleBtnContainer = document.querySelector("#toggle-btn-container");
   const container = document.querySelector("#progress-container");
@@ -281,4 +281,3 @@ function displayProgress(data) {
     container.append(subDiv);
   });
 }
-getRoadMap();
