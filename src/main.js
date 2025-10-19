@@ -172,6 +172,7 @@ function displayRoadMapData(data) {
 function displayProgress(data) {
   const toggleBtnContainer = document.querySelector("#toggle-btn-container");
   const container = document.querySelector("#progress-container");
+  if (!container) return;
   container.innerHTML = "";
 
   Object.entries(data).forEach(([key, value]) => {
